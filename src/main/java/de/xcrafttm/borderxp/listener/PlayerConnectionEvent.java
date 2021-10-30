@@ -30,7 +30,7 @@ public class PlayerConnectionEvent implements Listener {
                     player.sendMessage("§8[§6BorderXP§8] §cNo Village was found, to spawn you in. Please Reset the World and Restart!");
                     return;
                 }
-                Location loc = player.getWorld().getHighestBlockAt(village).getLocation().add(0.5, 1, 0.5);
+                Location loc = player.getWorld().getHighestBlockAt(village).getLocation().add(1, 1, 1);
                 village.getChunk().load(true);
 
                 world.setSpawnLocation(loc);
@@ -42,8 +42,8 @@ public class PlayerConnectionEvent implements Listener {
             WorldBorder border = Objects.requireNonNull(Bukkit.getWorld("world")).getWorldBorder();
             WorldBorder netherborder = Objects.requireNonNull(Bukkit.getWorld("world_nether")).getWorldBorder();
             WorldBorder endborder = Objects.requireNonNull(Bukkit.getWorld("world_the_end")).getWorldBorder();
-            border.setCenter(player.getLocation().getBlockX() + 0.5, player.getLocation().getBlockZ() + 0.5);
-            border.setSize(1);
+            border.setCenter(player.getLocation().getBlockX() + 1, player.getLocation().getBlockZ() + 1);
+            border.setSize(2);
 
             netherborder.setCenter(Objects.requireNonNull(Bukkit.getWorld("world_nether")).getSpawnLocation());
             endborder.setCenter(Objects.requireNonNull(Bukkit.getWorld("world_the_end")).getSpawnLocation());
@@ -52,9 +52,9 @@ public class PlayerConnectionEvent implements Listener {
         WorldBorder border = Objects.requireNonNull(Bukkit.getWorld("world")).getWorldBorder();
         WorldBorder netherborder = Objects.requireNonNull(Bukkit.getWorld("world_nether")).getWorldBorder();
         WorldBorder endborder = Objects.requireNonNull(Bukkit.getWorld("world_the_end")).getWorldBorder();
-            border.setSize(1);
-            netherborder.setSize(1);
-            endborder.setSize(1);
+            border.setSize(2);
+            netherborder.setSize(2);
+            endborder.setSize(2);
 
     }
 }
